@@ -4,6 +4,7 @@
   "description": "Le très célèbre jeux de la bataille navalle maintenant disponible sur Docker et Sécurisé!",
   "main": "main_serveur.js",
   "scripts": {
+    "start": "node main_serveur.js",
     "test": "bottle test"
   },
   "repository": {
@@ -22,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/Armadias/BottleNovole/issues"
   },
-  "homepage": "https://github.com/Armadias/BottleNovole#readme"
+  "homepage": "https://github.com/Armadias/BottleNovole#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
