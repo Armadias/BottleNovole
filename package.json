@@ -1,0 +1,26 @@
+{
+  "name": "bottle_novole",
+  "version": "0.0.1",
+  "description": "Le très célèbre jeux de la bataille navalle maintenant disponible sur Docker et Sécurisé!",
+  "main": "main_serveur.js",
+  "scripts": {
+    "test": "bottle test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Armadias/BottleNovole.git"
+  },
+  "keywords": [
+    "Docker",
+    "Secu",
+    "App",
+    "Bataille",
+    "Navale"
+  ],
+  "author": "Matrod Remi & Folliet Martin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Armadias/BottleNovole/issues"
+  },
+  "homepage": "https://github.com/Armadias/BottleNovole#readme"
+}
