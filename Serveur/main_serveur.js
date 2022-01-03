@@ -2,6 +2,10 @@ const express = require('express')
 const mysql = require('mysql'); 
 const app = express()
 const port = 3000
+const parser = require('body-parser')
+
+app.use(parser.urlencoded({ extended: false }))
+app.use(parser.json())
 
 var con = mysql.createConnection({
   host: "mysql",
@@ -28,3 +32,11 @@ app.get('/', async (req, res) => {
 app.listen(port, () => {
   console.log(`Blagafac listening at http://localhost:${port}`)
 })
+
+app.post('/new_joke', function(req, res, next){
+  // req.body object has your form values
+  console.log(req.body.title);
+  console.log(req.body.content);
+  console.log(req.body);
+  res.redirect("/");
+});
