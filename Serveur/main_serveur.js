@@ -4,22 +4,27 @@ const app = express()
 const port = 3000
 
 var con = mysql.createConnection({
-  host: "localhost",
+  host: "mysql",
   user: "root",
-  password: process.env.dtb_password
+  password: process.env.dtb_password,
+  database: "mydb"
 });
 
 con.connect(function(err) {
   if (err) throw err;
-  console.log("Connected!");
+  console.log("Connected to database!");
 });
 
 app.set("view engine", "ejs")
 
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
+  con.query("SELECT * FROM blagounettes;", (err, result, fields) => {
+    if (err) throw err;
+    console.log(result);
+  })
   res.render("index", {message: "bonjour le monde"})
 })
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+  console.log(`Blagafac listening at http://localhost:${port}`)
 })
