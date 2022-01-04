@@ -38,5 +38,8 @@ app.post('/new_joke', function(req, res, next){
   console.log(req.body.title);
   console.log(req.body.content);
   console.log(req.body);
+
+  con.query(`INSERT INTO blagounettes (titre, contenu) VALUES (${req.body.title}, ${req.body.content})`)
   res.redirect("/");
+
 });
