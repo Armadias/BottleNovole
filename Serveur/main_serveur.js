@@ -25,8 +25,8 @@ app.get('/', async (req, res) => {
   con.query("SELECT * FROM blagounettes;", (err, result, fields) => {
     if (err) throw err;
     console.log(result);
+    res.render("index", {query_result: result})
   })
-  res.render("index", {message: "bonjour le monde"})
 })
 
 app.listen(port, () => {
@@ -39,7 +39,7 @@ app.post('/new_joke', function(req, res, next){
   console.log(req.body.content);
   console.log(req.body);
 
-  con.query(`INSERT INTO blagounettes (titre, contenu) VALUES (${req.body.title}, ${req.body.content})`)
+  con.query(`INSERT INTO blagounettes (titre, contenu) VALUES ("${req.body.title}", "${req.body.content}")`)
   res.redirect("/");
 
 });
