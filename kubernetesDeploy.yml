@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bottlenovole_blagafac-deployment
+  labels:
+    app: bottlenovole_blagafac
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bottlenovole_blagafac
+  template:
+    metadata:
+      labels:
+        app: bottlenovole_blagafac 
+    spec:
+      containers:
+      - name: nodeserver
+        image: thetips4you/bottlenovole_blagafac:latest
+        ports:
+        - containerPort: 3000
