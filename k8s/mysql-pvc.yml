@@ -1,0 +1,15 @@
+# MySQL: Persistent Volume Claim
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-blagafac-pvc
+  labels:
+    app: bottlenovoleblagafac
+    role: db
+spec:
+  resources:
+    requests:
+      storage: 3Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
