@@ -1,10 +1,10 @@
 .apiVersion: v1
 kind: Service
 metadata:
-  name: bottlenovole_blagafac-service
+  name: bottlenovoleblagafac-service
 spec:
   selector:
-    app: bottlenovole_blagafaccd 
+    app: bottlenovoleblagafaccd 
   type: LoadBalancer
   ports:
   - protocol: TCP

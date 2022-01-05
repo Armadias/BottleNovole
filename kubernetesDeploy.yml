@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: bottlenovole_blagafac-deployment
+  name: bottlenovoleblagafac-deployment
   labels:
-    app: bottlenovole_blagafac
+    app: bottlenovoleblagafac
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: bottlenovole_blagafac
+      app: bottlenovoleblagafac
   template:
     metadata:
       labels:
-        app: bottlenovole_blagafac 
+        app: bottlenovoleblagafac 
     spec:
       containers:
       - name: nodeserver
