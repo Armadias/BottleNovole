@@ -1,0 +1,13 @@
+.apiVersion: v1
+kind: Service
+metadata:
+  name: bottlenovole_blagafac-service
+spec:
+  selector:
+    app: bottlenovole_blagafaccd 
+  type: LoadBalancer
+  ports:
+  - protocol: TCP
+    port: 5000
+    targetPort: 3000
+    nodePort: 31110
