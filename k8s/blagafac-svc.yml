@@ -1,13 +1,14 @@
+# BottleNovole-Blagafac: Service
 apiVersion: v1
 kind: Service
 metadata:
   name: bottlenovoleblagafac-service
 spec:
   selector:
-    app: bottlenovoleblagafaccd 
+    app: bottlenovoleblagafac
   type: LoadBalancer
   ports:
   - protocol: TCP
-    port: 5000
+    port: 3000
     targetPort: 3000
     nodePort: 31110

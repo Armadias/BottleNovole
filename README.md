@@ -18,10 +18,13 @@ Il faut suivre ces étapes pour paramétrer les variables d'environnement (utili
 Une fois le fichier `.env` rempli, les conteneurs peuvent être montés.
 
 
-## Lancement des conteneurs
+## Lancement des conteneurs (Docker-Compose)
 Lancer la commande `docker-compose up -d`.  
 Le site est alors accessible sur le port 3000, et la base de données MySQL est disponible sur le port 3306.
 
+## Lancement des conteneurs (Minikube/Kubectl)
+Lancer la commande `kubectl apply -f k8s/`, puis démarrer le service avec `minikube service bottlenovoleblagafac-service`.  
+Le site est alors accessible.
 
 ## Auteurs
 Rémi Matrod  

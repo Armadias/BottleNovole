@@ -1,0 +1,55 @@
+# MySQL: Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+  labels:
+    app: bottlenovoleblagafac
+    role: db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bottlenovoleblagafac
+      role: db
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: bottlenovoleblagafac
+        role: db
+    spec:
+      containers:
+      - name: mysql
+        image: mysql:8.0.27
+        args: 
+          - "--default-authentication-plugin=mysql_native_password"
+        env:
+          - name: MYSQL_ROOT_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: mysql-secret
+                key: password
+        resources:
+          limits:
+            memory: "800Mi"
+            cpu: "2"
+          requests:
+            memory: "400Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3306
+        volumeMounts:
+          - name: mysql-data
+            mountPath: "/var/lib/mysql/"
+          - name: init-base
+            mountPath: "/docker-entrypoint-initdb.d/"
+            readOnly: true
+      volumes:
+        - name: mysql-data
+          persistentVolumeClaim:
+            claimName: mysql-blagafac-pvc
+        - name: init-base
+          configMap:
+            name: init-db

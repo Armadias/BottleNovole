@@ -1,3 +1,4 @@
+# BottleNovole-Blagafac: Deploy
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -15,7 +16,13 @@ spec:
         app: bottlenovoleblagafac 
     spec:
       containers:
-      - name: nodeserver
-        image: thetips4you/bottlenovole_blagafac:latest
+      - name: bottlenovoleblagafac
+        image: follietm/bottlenovole_blagafac:latest
+        env:
+            - name: dtb_password
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: password
         ports:
         - containerPort: 3000
